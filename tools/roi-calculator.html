@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation ROI Calculator — Kai Rhodes</title>
+    <meta name="description" content="Calculate how much your business could save with AI automation. Free tool by Kai Rhodes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #e0e0e0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .container { max-width: 640px; width: 100%; }
+        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; }
+        h1 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+        .subtitle { color: #666; font-size: 15px; margin-bottom: 32px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-size: 14px; font-weight: 600; color: #ccc; margin-bottom: 6px; }
+        input, select { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; color: #e0e0e0; font-size: 16px; font-family: inherit; }
+        input:focus, select:focus { outline: none; border-color: #6366f1; }
+        .btn { width: 100%; padding: 14px; background: #6366f1; color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; margin-top: 8px; transition: all 0.2s; }
+        .btn:hover { background: #4f46e5; transform: translateY(-1px); }
+        .result { display: none; margin-top: 24px; padding: 24px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; }
+        .result.show { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .savings { font-size: 42px; font-weight: 800; color: #818cf8; margin: 8px 0; }
+        .savings-label { font-size: 14px; color: #666; }
+        .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+        .detail-label { color: #999; }
+        .detail-value { color: #e0e0e0; font-weight: 600; }
+        .cta { margin-top: 20px; text-align: center; }
+        .cta p { color: #666; font-size: 14px; margin-bottom: 12px; }
+        .cta a { color: #818cf8; text-decoration: none; font-weight: 600; }
+        .cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; margin-top: 24px; color: #444; font-size: 13px; }
+        .badge { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); padding: 4px 12px; border-radius: 100px; font-size: 12px; color: #818cf8; margin-bottom: 16px; }
+        @media (max-width: 480px) { .card { padding: 24px; } h1 { font-size: 24px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="badge">⚡ Free Tool</div>
+            <h1>AI Automation ROI Calculator</h1>
+            <p class="subtitle">See how much your business could save by automating repetitive tasks with AI.</p>
+            <div class="form-group">
+                <label>What type of task do you want to automate?</label>
+                <select id="taskType">
+                    <option value="customer-support">Customer support / FAQ responses</option>
+                    <option value="data-entry">Data entry / form processing</option>
+                    <option value="lead-gen">Lead qualification & follow-up</option>
+                    <option value="content">Content creation / social media</option>
+                    <option value="scheduling">Appointment scheduling</option>
+                    <option value="reporting">Report generation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>How many hours per week does your team spend on this?</label>
+                <input type="range" id="hoursRange" min="1" max="80" value="10">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-top: 4px;">
+                    <span>1h</span>
+                    <span id="hoursDisplay">10 hours/week</span>
+                    <span>80h</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Average hourly cost of the person doing this work (£)</label>
+                <select id="hourlyRate">
+                    <option value="12">£12 (minimum wage)</option>
+                    <option value="15">£15 (admin/entry level)</option>
+                    <option value="20" selected>£20 (experienced admin)</option>
+                    <option value="30">£30 (specialist)</option>
+                    <option value="45">£45 (senior/manager)</option>
+                    <option value="60">£60+ (executive)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>How many employees do this task?</label>
+                <select id="employeeCount">
+                    <option value="1">1 person</option>
+                    <option value="2">2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="5">5 people</option>
+                    <option value="10">10+ people</option>
+                </select>
+            </div>
+            <button class="btn" onclick="calculate()">Calculate Your Savings →</button>
+            <div class="result" id="result">
+                <div class="savings-label">Estimated ANNUAL savings with AI automation</div>
+                <div class="savings" id="annualSavings">£0</div>
+                <div class="detail-row"><span class="detail-label">Current annual cost</span><span class="detail-value" id="currentCost">£0</span></div>
+                <div class="detail-row"><span class="detail-label">AI automation cost (one-time)</span><span class="detail-value" id="aiCost">£250</span></div>
+                <div class="detail-row"><span class="detail-label">Hours saved per year</span><span class="detail-value" id="hoursSaved">0</span></div>
+                <div class="detail-row"><span class="detail-label">Productivity gain</span><span class="detail-value" id="productivityGain">0%</span></div>
+                <div class="cta">
+                    <p>Want to make this happen? I build exactly this kind of automation.</p>
+                    <a href="mailto:kai.rhodes1999@gmail.com?subject=ROI%20Calculator" class="btn">Let's Talk →</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Built by <a href="https://kairhodes1999-cloud.github.io/kai-rhodes/" style="color:#6366f1;text-decoration:none;">Kai Rhodes</a> — AI Automation Services</div>
+    </div>
+    <script>
+        const range = document.getElementById('hoursRange');
+        const display = document.getElementById('hoursDisplay');
+        range.addEventListener('input', () => { display.textContent = range.value + ' hours/week'; });
+        function calculate() {
+            const hours = parseInt(range.value);
+            const rate = parseInt(document.getElementById('hourlyRate').value);
+            const employees = parseInt(document.getElementById('employeeCount').value);
+            const totalHoursPerWeek = hours * employees;
+            const annualCost = totalHoursPerWeek * rate * 48;
+            const annualSavings = Math.round(annualCost * 0.8);
+            const hoursSaved = Math.round(totalHoursPerWeek * 48 * 0.8);
+            document.getElementById('annualSavings').textContent = '£' + annualSavings.toLocaleString();
+            document.getElementById('currentCost').textContent = '£' + annualCost.toLocaleString();
+            document.getElementById('aiCost').textContent = '£250';
+            document.getElementById('hoursSaved').textContent = hoursSaved.toLocaleString();
+            document.getElementById('productivityGain').textContent = '80%';
+            document.getElementById('result').classList.add('show');
+        }
+    </script>
+</body>
+</html>
