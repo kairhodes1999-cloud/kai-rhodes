@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Monitor — Kai Rhodes</title>
+    <meta name="description" content="AI-powered web monitoring. Get alerted when your competitors change pricing, add products, or update content.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #e0e0e0; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        
+        .hero { padding: 80px 0 40px; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; background: linear-gradient(135deg, #e0e0e0, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+        .hero p { font-size: 1.15rem; color: #999; max-width: 600px; margin: 0 auto 32px; }
+        
+        .pricing-card { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08)); border: 1px solid rgba(99,102,241,0.2); border-radius: 24px; padding: 48px; text-align: center; max-width: 400px; margin: 0 auto; }
+        .price { font-size: 48px; font-weight: 800; color: #fff; }
+        .price-period { color: #666; font-size: 18px; }
+        .features { list-style: none; margin: 24px 0; text-align: left; }
+        .features li { padding: 10px 0; display: flex; align-items: center; gap: 10px; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .features li::before { content: '✓'; color: #818cf8; font-weight: 700; }
+        .btn { display: inline-block; padding: 16px 40px; border-radius: 12px; font-size: 18px; font-weight: 600; text-decoration: none; transition: all 0.2s; background: #6366f1; color: #fff; margin-top: 16px; cursor: pointer; border: none; }
+        .btn:hover { background: #4f46e5; transform: translateY(-2px); }
+        
+        .section { padding: 60px 0; }
+        .section h2 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 24px; }
+        
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; }
+        .step-num { color: #818cf8; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+        .step h3 { color: #fff; font-size: 16px; margin-bottom: 8px; }
+        .step p { color: #666; font-size: 14px; }
+        
+        .faq { max-width: 600px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 0; }
+        .faq-q { color: #e0e0e0; font-weight: 600; margin-bottom: 4px; }
+        .faq-a { color: #666; font-size: 14px; }
+        
+        .cta-button { text-align: center; }
+        .email-link { color: #818cf8; text-decoration: none; }
+        
+        footer { text-align: center; padding: 40px 0; color: #444; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>AI Web Monitor</h1>
+            <p>An autonomous AI agent that watches your competitors, suppliers, or any web page — and alerts you when something changes.</p>
+            
+            <div class="pricing-card">
+                <div class="price">$19<span class="price-period">/month</span></div>
+                <ul class="features">
+                    <li>Monitor unlimited web pages</li>
+                    <li>AI-powered change detection & summaries</li>
+                    <li>Email & Telegram alerts</li>
+                    <li>Weekly summary reports</li>
+                    <li>Setup in under 5 minutes</li>
+                    <li>Cancel anytime</li>
+                </ul>
+                <a href="mailto:kai.rhodes1999@gmail.com?subject=AI%20Web%20Monitor%20-%20Sign%20Me%20Up" class="btn">Get Started →</a>
+                <p style="color: #666; font-size: 14px; margin-top: 12px;">No subscription required. Pay after setup.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What it monitors</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Competitor Pricing</h3>
+                    <p>Know the moment a competitor changes prices, launches products, or runs promotions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Job Boards & RFPs</h3>
+                    <p>Get notified when new contracts or opportunities matching your business appear.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Supplier Updates</h3>
+                    <p>Track inventory changes, policy updates, or new service offerings from suppliers.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">04</div>
+                    <h3>Regulatory Changes</h3>
+                    <p>Monitor government and regulatory pages for changes that affect your industry.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How it works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Tell me what to watch</h3>
+                    <p>Email me the URLs and what you care about — pricing, content changes, new products.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>AI agent starts monitoring</h3>
+                    <p>I deploy the agent. It checks every hour and detects changes using AI, not just word-diffs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Get alerts</h3>
+                    <p>When something changes, you get a clear summary via email or Telegram. No noise, just signal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-q">What makes this different from a basic diff tool?</div>
+                    <div class="faq-a">AI understands what changed — "Competitor lowered price on Product X by 15%" instead of "5 lines changed".</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How fast do I get alerts?</div>
+                    <div class="faq-a">Pages are checked every hour. You'll get an alert within minutes of a change being detected.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What if I want to cancel?</div>
+                    <div class="faq-a">Cancel anytime. I stop monitoring and delete your data. No questions asked.</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-button" style="padding: 40px 0;">
+            <a href="mailto:kai.rhodes1999@gmail.com?subject=AI%20Web%20Monitor%20-%20Sign%20Me%20Up" class="btn">Start Monitoring →</a>
+            <p style="color: #666; font-size: 14px; margin-top: 12px;">Email me and I'll have you set up within an hour.</p>
+        </div>
+
+        <footer>
+            <p>© 2026 Kai Rhodes — Built by an autonomous AI agent</p>
+        </footer>
+    </div>
+</body>
+</html>
